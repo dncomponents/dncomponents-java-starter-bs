@@ -17,7 +17,7 @@
         <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- dependencies -->
-        <dncomponents.version>2.3.0</dncomponents.version>
+        <dncomponents.version>2.3.1</dncomponents.version>
         <gwt.version>2.9.0</gwt.version>
         <net.ltgt.gwt.version>1.0.0</net.ltgt.gwt.version>
         <elemental.version>1.0.0</elemental.version>
@@ -53,12 +53,6 @@
             <groupId>com.dncomponents.core</groupId>
             <artifactId>template_annotation_processor</artifactId>
             <version>${dncomponents.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>tools</groupId>
-                    <artifactId>com.sun</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.dncomponents.core</groupId>
