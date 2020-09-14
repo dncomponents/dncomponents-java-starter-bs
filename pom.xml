@@ -105,7 +105,6 @@
                                 <!-- Either exclude with full path to file that implements EntryPoint -->
                                 <!-- Interface or follow name convention that contains EntryPoint word like AppEntryPoint -->
                                 <exclude>**/*EntryPoint*.*</exclude>
-                                <exclude>com/start/client/App.java</exclude>
                             </excludes>
                             <compilerArgs>
                                 <arg>-Aregister=AppTemplates</arg>

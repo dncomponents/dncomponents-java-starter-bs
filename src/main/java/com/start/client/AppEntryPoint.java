@@ -6,7 +6,7 @@ import com.dncomponents.client.views.Ui;
 import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
 
-public class App implements EntryPoint {
+public class AppEntryPoint implements EntryPoint {
 @Override
 public void onModuleLoad() {
         Ui.set(new BootstrapUi());
