@@ -1,7 +1,6 @@
 package com.start.client.cell;
 
 import com.dncomponents.UiField;
-import com.dncomponents.client.components.HasCellComponents;
 import com.dncomponents.client.components.ListData;
 import com.dncomponents.client.components.core.HtmlBinder;
 import com.dncomponents.client.components.core.entities.ItemId;
@@ -11,7 +10,7 @@ import com.start.client.helper.Data;
 import com.start.client.helper.Person;
 import elemental2.dom.HTMLElement;
 
-public class ListAppView implements IsElement, HasCellComponents {
+public class ListAppView implements IsElement {
     @UiField
     HTMLElement root;
     @UiField
@@ -35,7 +34,7 @@ public class ListAppView implements IsElement, HasCellComponents {
                         logTa.append(p.getId() + "\n")));
 
         listPeople.getRowCellConfig().setFieldGetter(Person::getName);
-        listPeople.getRowCellConfig().getCellBuilder()
+        listPeople.getRowCellConfig()
                 .setCellRenderer(r -> r.valuePanel.innerHTML = "<b>" + r.value + "</b>");
         listPeople.getSelectionModel().addSelectionHandler(evt ->
                 evt.getSelectedItem().forEach(p ->
@@ -45,7 +44,6 @@ public class ListAppView implements IsElement, HasCellComponents {
         listPeople.setRowsData(Data.people);
         listPeople.drawData();
     }
-
 
     @Override
     public HTMLElement asElement() {
@@ -58,11 +56,6 @@ public class ListAppView implements IsElement, HasCellComponents {
         if (instance == null)
             instance = new ListAppView();
         return instance;
-    }
-
-    @Override
-    public void resetScrollPosition() {
-        HasCellComponents.resetAll(listPeople, list);
     }
 
 }

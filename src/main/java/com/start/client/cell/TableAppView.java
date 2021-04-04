@@ -2,7 +2,6 @@ package com.start.client.cell;
 
 import com.dncomponents.UiField;
 import com.dncomponents.client.components.ColumnConfig;
-import com.dncomponents.client.components.HasCellComponents;
 import com.dncomponents.client.components.Table;
 import com.dncomponents.client.components.autocomplete.AutoCompleteEditor;
 import com.dncomponents.client.components.core.HtmlBinder;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TableAppView implements IsElement, HasCellComponents {
+public class TableAppView implements IsElement {
 
     @UiField
     HTMLElement root;
@@ -37,38 +36,42 @@ public class TableAppView implements IsElement, HasCellComponents {
         table.setEditable(true);
 
         ColumnConfig<Person, String> nameColumn =
-                new ColumnConfig<>(Person::getName, Person::setName)
-                        .setColumnName("Name")
+                new ColumnConfig.Builder<>(Person::getName, Person::setName)
+                        .setName("Name")
                         .setHeaderCellFactory(()
                                 -> new HeaderTableFilterCell())
                         .setColumnWidth("300px")
                         .setEditable(true)
-                        .setClazz(String.class);
+                        .setClazz(String.class)
+                        .build();
 
         ColumnConfig<Person, Boolean> activeColumn =
-                new ColumnConfig<>(Person::isActive, Person::setActive)
-                        .setColumnName("Active")
+                new ColumnConfig.Builder<>(Person::isActive, Person::setActive)
+                        .setName("Active")
                         .setHeaderCellFactory(() -> new HeaderTableFilterCell())
                         .setColumnWidth("150px")
-                        .setClazz(Boolean.class);
+                        .setClazz(Boolean.class)
+                        .build();
 
 
         ColumnConfig<Person, Integer> ageColumn =
-                new ColumnConfig<>(Person::getAge, Person::setAge)
-                        .setColumnName("Age")
+                new ColumnConfig.Builder<>(Person::getAge, Person::setAge)
+                        .setName("Age")
                         .setHeaderCellFactory(() -> new HeaderTableFilterCell())
                         .setColumnWidth("150px")
-                        .setClazz(Integer.class);
+                        .setClazz(Integer.class)
+                        .build();
 
         List<String> colors = Arrays.asList(TestingHelper.colors);
 
         final ColumnConfig<Person, String> colorColumn =
-                new ColumnConfig<>(Person::getCurrentColor, Person::setCurrentColor)
-                        .setColumnName("Color")
+                new ColumnConfig.Builder<>(Person::getCurrentColor, Person::setCurrentColor)
+                        .setName("Color")
                         .setHeaderCellFactory(() ->
                                 new HeaderTableFilterCell()
                                         .setFilterPanel(new FilterPanelList(colors))
-                        ).setColumnWidth("250px");
+                        ).setColumnWidth("250px")
+                        .build();
 
         AutoCompleteEditor<String> acEditor = new AutoCompleteEditor<>(TestingHelper.getColors());
 
@@ -97,8 +100,4 @@ public class TableAppView implements IsElement, HasCellComponents {
         return instance;
     }
 
-    @Override
-    public void resetScrollPosition() {
-        HasCellComponents.resetAll(table);
-    }
 }

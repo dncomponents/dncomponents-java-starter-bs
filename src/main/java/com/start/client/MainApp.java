@@ -1,7 +1,7 @@
 package com.start.client;
 
 import com.dncomponents.UiField;
-import com.dncomponents.client.components.HasCellComponents;
+import com.dncomponents.client.components.AbstractCellComponent;
 import com.dncomponents.client.components.core.HtmlBinder;
 import com.dncomponents.client.components.core.entities.ItemId;
 import com.dncomponents.client.components.sidemenu.SideMenu;
@@ -44,9 +44,7 @@ public class MainApp implements AcceptsOneElement {
     public void setElement(IsElement element) {
         contentWrapper.innerHTML = "";
         contentWrapper.appendChild(element.asElement());
-        if (element instanceof HasCellComponents) {
-            ((HasCellComponents) element).resetScrollPosition();
-        }
+        AbstractCellComponent.resetScrollOnPage(contentWrapper);
     }
 
     public Node asElement() {
