@@ -12,7 +12,7 @@ public void onModuleLoad() {
         Ui.set(new BootstrapUi());
         AppTemplates.register();
         //
-        MainApp mainApp = new MainApp();
+        var mainApp = new MainApp();
         DomGlobal.document.body.appendChild(mainApp.asElement());
         }
 }
