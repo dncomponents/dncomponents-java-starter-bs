@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 dncomponents
+ * Copyright 2024 dncomponents
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,23 +16,27 @@
 
 package com.start.client.helper;
 
-/**
- * @author dncomponents
- */
 
 import java.util.Date;
+import java.util.List;
 
 public class Person {
+
     private int id;
-    private String name;
+    public String name;
     private Boolean active;
     private Date date;
     private String currentColor = "";
     private Person director;
     private Integer age;
+    private String gender;
+    private String email;
+
+    public List<Person> personList;
 
     public Person() {
     }
+
 
     public Person(String name) {
         this.name = name;
@@ -78,6 +82,14 @@ public class Person {
         this.currentColor = currentColor;
     }
 
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
     public Person getDirector() {
         return director;
     }
@@ -94,9 +106,38 @@ public class Person {
         this.date = date;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public List<Person> getPersonList() {
+        return personList;
+    }
+
+    public void setPersonList(List<Person> personList) {
+        this.personList = personList;
+    }
+
     @Override
     public String toString() {
         return getName();
+    }
+
+    public String toString2() {
+        return "Person{" +
+               "id=" + id +
+               ", name='" + name + '\'' +
+               ", active=" + active +
+               ", date=" + date +
+               ", currentColor='" + currentColor + '\'' +
+               ", director=" + director +
+               ", age=" + age +
+               ", email='" + email + '\'' +
+               '}';
     }
 
 }

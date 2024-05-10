@@ -24,7 +24,6 @@ import com.dncomponents.client.components.core.HtmlBinder;
 import com.dncomponents.client.components.table.header.HeaderTableFilterCell;
 import com.dncomponents.client.components.table.header.filter.FilterPanelList;
 import com.dncomponents.client.views.IsElement;
-import com.start.client.helper.Data;
 import com.start.client.helper.Person;
 import com.start.client.helper.TestingHelper;
 import elemental2.dom.HTMLElement;
@@ -41,13 +40,12 @@ public class TableAppView implements IsElement {
     Table<Person> table;
 
     public TableAppView() {
-        HtmlBinder.get(TableAppView.class, this).bind();
+        HtmlBinder.create(TableAppView.class, this).bind();
         init();
     }
 
     private void init() {
-        final ArrayList<Person> people = Data.getPeople();
-        Data.setNulls(people);
+        final ArrayList<Person> people = TestingHelper.getPeople(300);
         table.setMultiSorting(true);
         table.setEditable(true);
 

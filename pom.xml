@@ -17,10 +17,10 @@
         <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- dependencies -->
-        <dncomponents.version>2.5.1</dncomponents.version>
+        <dncomponents.version>3.0.0-alpha-1</dncomponents.version>
         <gwt.version>2.10.0</gwt.version>
-        <net.ltgt.gwt.version>1.0.1</net.ltgt.gwt.version>
-        <elemental.version>1.1.0</elemental.version>
+        <net.ltgt.gwt.version>1.1.0</net.ltgt.gwt.version>
+        <elemental.version>1.2.1</elemental.version>
     </properties>
 
     <dependencies>
@@ -95,6 +95,8 @@
                 <configuration>
                     <compilerArgs>
                         <arg>-Aregister=AppTemplates</arg>
+                        <arg>-AcssDir=${project.basedir}/src/main/java/com/start/public</arg>
+                        <arg>-Asrc=${project.build.sourceDirectory}</arg>
                     </compilerArgs>
                     <annotationProcessors>
                         <annotationProcessor>com.dncomponents.TemplateProcessor</annotationProcessor>

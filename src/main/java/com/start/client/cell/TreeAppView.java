@@ -33,7 +33,7 @@ public class TreeAppView implements IsElement {
     TextArea logTa;
 
     public TreeAppView() {
-        HtmlBinder.get(TreeAppView.class, this).bind();
+        HtmlBinder.create(TreeAppView.class, this).bind();
         init();
     }
 

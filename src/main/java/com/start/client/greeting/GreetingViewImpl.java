@@ -43,7 +43,7 @@ public class GreetingViewImpl extends AbstractView<GreetingActivity> implements 
     public Popover popover;
 
 
-    HtmlBinder binder = HtmlBinder.get(GreetingViewImpl.class, this);
+    HtmlBinder binder = HtmlBinder.create(GreetingViewImpl.class, this);
 
     private GreetingViewImpl() {
         binder.bind();

@@ -16,7 +16,7 @@
 
 package com.start.client.home;
 
-import com.dncomponents.UiField;
+ import com.dncomponents.UiField;
 import com.dncomponents.client.components.button.Button;
 import com.dncomponents.client.components.checkbox.CheckBoxSelectionGroup;
 import com.dncomponents.client.components.checkbox.RadioSelectionGroup;
@@ -50,7 +50,7 @@ public class HomeViewImpl implements IsElement {
     public TextArea eventsTa;
 
     {
-        HtmlBinder.get(HomeViewImpl.class, this).bind();
+        HtmlBinder.create(HomeViewImpl.class, this).bind();
     }
 
     public HomeViewImpl() {

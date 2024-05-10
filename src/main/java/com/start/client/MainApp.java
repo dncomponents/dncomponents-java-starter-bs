@@ -39,7 +39,7 @@ public class MainApp implements AcceptsOneElement {
     public SideMenu<ItemId> side;
 
     PlaceManager placeManager = new PlaceManager(this);
-    HtmlBinder binder = HtmlBinder.get(MainApp.class, this);
+    HtmlBinder binder = HtmlBinder.create(MainApp.class, this);
 
     public MainApp() {
         binder.bind();
@@ -64,6 +64,6 @@ public class MainApp implements AcceptsOneElement {
     }
 
     public Node asElement() {
-        return binder.getTemplate().getCloned();
+        return binder.asNode();
     }
 }

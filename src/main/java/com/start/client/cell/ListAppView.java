@@ -22,8 +22,8 @@ import com.dncomponents.client.components.core.HtmlBinder;
 import com.dncomponents.client.components.core.entities.ItemId;
 import com.dncomponents.client.components.textarea.TextArea;
 import com.dncomponents.client.views.IsElement;
-import com.start.client.helper.Data;
 import com.start.client.helper.Person;
+import com.start.client.helper.TestingHelper;
 import elemental2.dom.HTMLElement;
 
 public class ListAppView implements IsElement {
@@ -39,7 +39,7 @@ public class ListAppView implements IsElement {
     TextArea logTa2;
 
     public ListAppView() {
-        HtmlBinder.get(ListAppView.class, this).bind();
+        HtmlBinder.create(ListAppView.class, this).bind();
         init();
     }
 
@@ -48,7 +48,7 @@ public class ListAppView implements IsElement {
         list.getSelectionModel().addSelectionHandler(evt ->
                 evt.getSelectedItem().forEach(p ->
                         logTa.append(p.getId() + "\n")));
-
+        listPeople.getRowCellConfig().setFieldSetter((person, s) -> person.setName(s));
         listPeople.getRowCellConfig().setFieldGetter(Person::getName);
         listPeople.getRowCellConfig()
                 .setCellRenderer(r -> r.valuePanel.innerHTML = "<b>" + r.value + "</b>");
@@ -57,7 +57,7 @@ public class ListAppView implements IsElement {
                         logTa2.append(p.getName() + " " + p.getAge() + "\n")
                 ));
 
-        listPeople.setRowsData(Data.people);
+        listPeople.setRowsData(TestingHelper.getPeople(300));
         listPeople.drawData();
     }
 

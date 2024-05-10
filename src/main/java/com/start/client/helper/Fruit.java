@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 dncomponents
+ * Copyright 2024 dncomponents
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,10 +21,9 @@ import com.dncomponents.client.components.tree.TreeNode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
-/**
- * @author dncomponents
- */
+
 public class Fruit {
     public static List<Fruit> fruits = Arrays.asList(
             new Fruit("Bell pepper", "Non-sweet"),
@@ -46,7 +45,6 @@ public class Fruit {
     );
 
 
-
     private String name;
     private String description;
 
@@ -60,13 +58,11 @@ public class Fruit {
 
     public static List<Fruit> getFruits(int number) {
         List<Fruit> fruitList = new ArrayList<>();
-        int n = 0;
-        int nam = 0;
+        Random random = new Random();
         for (int i = 0; i < number; i++) {
-            Fruit fruit = fruits.get(nam++);
-            if (nam == fruits.size() - 1) nam = 0;
-            fruitList.add(new Fruit(fruit.getName() + "  " + n++, "The " + fruit.getName()
-                    + " is a " + fruit.getDescription() + " fruit"));
+            Fruit fruit = fruits.get(random.nextInt(fruits.size()));
+            fruitList.add(new Fruit(fruit.getName() + "  " + i, "The " + fruit.getName()
+                                                                + " is a " + fruit.getDescription() + " fruit"));
         }
         return fruitList;
     }
